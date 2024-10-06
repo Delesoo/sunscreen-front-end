@@ -26,6 +26,9 @@ header{
     justify-content: space-between;
     align-items: center;
 }
+.hamburger{
+    display: none;
+}
 
 .logo a{
     font-family: 'Serif', sans-serif;
@@ -43,11 +46,11 @@ header{
     font-size: 18px;
     font-weight: 500;
 }
-.nav-links li{
-    transition: transform 0.3s;
+.nav-links li a{
+    transition: color 0.3s;
 }
-.nav-links li:hover {
-    transform: scale(1.2);
+.nav-links li a:hover {
+    color: #ffffff;
 }
 
 .nav-icons {
@@ -618,6 +621,7 @@ header{
 
 @media (max-width: 768px) {
     .navbar{
+        position: relative;
         padding: 16px 20px;
         display: flex;
         justify-content: space-between;
@@ -626,7 +630,29 @@ header{
     }
     .nav-links{
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #e1ded5;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0px 10px 6px rgba(0, 0, 0, 0.253);
+        gap: 15px;
+        z-index: 1;
+        transition: max-height 0.5s ease-in-out;
+        overflow: hidden;
     }
+    .nav-links.open {
+        display: flex;
+        max-height: 400px;
+    }
+
+    .nav-links li {
+        margin-bottom: 15px;
+    }
+
     .main-content{
         position: relative;
         padding: 20px;
@@ -722,5 +748,11 @@ header{
     }
     .image-block p{
         width: 300px;
+    }
+    .hamburger{
+        display: block;
+    }
+    .hamburger img{
+        width: 24px;
     }
 }
